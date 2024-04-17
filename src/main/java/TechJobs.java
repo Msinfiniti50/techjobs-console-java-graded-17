@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+
 /**
  * Created by LaunchCode
  */
@@ -34,11 +35,11 @@ public class TechJobs {
 
             if (actionChoice == null) {
                 break;
-            } else if (actionChoice.equals("list")) {
+            } else if (actionChoice.equalsIgnoreCase("list")) {
 
                 String columnChoice = getUserSelection("List", columnChoices);
 
-                if (columnChoice.equals("all")) {
+                if ("all".equalsIgnoreCase(columnChoice)) {
                     printJobs(JobData.findAll());
                 } else {
 
@@ -61,8 +62,8 @@ public class TechJobs {
                 System.out.println("\nSearch term:");
                 String searchTerm = in.nextLine();
 
-                if (searchField.equals("all")) {
-                    printJobs(JobData.findByValue(searchTerm));
+                if ("all".equalsIgnoreCase(searchField)) {
+                    printJobs(JobData.findByValue(searchTerm.toLowerCase()));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -74,10 +75,10 @@ public class TechJobs {
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
         int choiceIdx = -1;
-        Boolean validChoice = false;
+        boolean validChoice = false;
         String[] choiceKeys = new String[choices.size()];
 
-        // Put the choices in an ordered structure so we can
+        // Put the choices in an ordered structure, so we can
         // associate an integer with each one
         int i = 0;
         for (String choiceKey : choices.keySet()) {
@@ -91,7 +92,7 @@ public class TechJobs {
 
             // Print available choices
             for (int j = 0; j < choiceKeys.length; j++) {
-                System.out.println("" + j + " - " + choices.get(choiceKeys[j]));
+                System.out.println( j + " - " + choices.get(choiceKeys[j]));
             }
 
             if (in.hasNextInt()) {
@@ -120,6 +121,23 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+        if (someJobs.isEmpty()) {
+            System.out.println("No Results");
+            return;
+        }
+
+
+        for (HashMap<String, String> job : someJobs) {
+
+            System.out.println("*****");
+
+            for (String key : job.keySet()) {
+
+        System.out.println(key + ": " + job.get(key));
     }
-}
+            System.out.println("*****\n");
+        }
+
+}}
+
+

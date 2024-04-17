@@ -19,7 +19,7 @@ public class TechJobsTest {
     private static ByteArrayOutputStream baos;
 
     // set up an alternative output stream to capture output
-    // this needs to be done before every test so we don't contaminate test output
+    // this needs to be done before every test, so we don't contaminate test output
     @Before
     public void setUpOutputStream() {
         baos = new ByteArrayOutputStream();
@@ -40,7 +40,7 @@ public class TechJobsTest {
 
     @Test
     public void testPrintJobs() throws IOException {
-        String input = "0\n2\nBuzzbold\nx";
+        String input = "0\n2\nBuzz_bold\nx";
         String output = runProgramWithInput(input);
         String expected = getFileContents("src/test/resources/testPrintJobs.txt");
         assertEquals(expected.replaceAll("\r\n?", "\n"), output.replaceAll("\r\n?", "\n"));
