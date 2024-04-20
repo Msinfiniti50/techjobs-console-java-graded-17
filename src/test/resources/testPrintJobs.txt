@@ -16,7 +16,7 @@ Search term:
 *****
 position type: Web - Full Stack
 name: Full Stack Developer
-employer: Buzzbold
+employer: Buzz bold
 location: Saint Louis
 core competency: Javascript
 *****

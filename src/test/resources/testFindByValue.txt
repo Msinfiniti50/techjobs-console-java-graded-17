@@ -24,7 +24,7 @@ core competency: Ruby
 *****
 position type: Web - Full Stack
 name: Full Stack Engineer
-employer: Splitwise
+employer: Split wise
 location: Rhode Island
 core competency: Ruby
 *****
@@ -32,7 +32,7 @@ core competency: Ruby
 *****
 position type: Other
 name: QA Analyst
-employer: Bandcamp
+employer: Band camp
 location: New York
 core competency: Ruby, Javascript
 *****

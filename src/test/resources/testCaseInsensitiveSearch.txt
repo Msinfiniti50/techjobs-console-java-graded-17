@@ -16,7 +16,7 @@ Search term:
 *****
 position type: Other
 name: QA Analyst
-employer: Bandcamp
+employer: Band camp
 location: New York
 core competency: Ruby, Javascript
 *****
