@@ -57,13 +57,15 @@ private final static Logger LOGGER = Logger.getLogger(JobData.class.getName());
 
         // load data, if not already loaded
         loadData();
-        value = value.toLowerCase();
+        value = value.trim().toLowerCase();
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+
         for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
 
-            if (aValue != null && aValue.toLowerCase().contains(value)) {
+            if (aValue != null && aValue.equalsIgnoreCase(value)) {
                 jobs.add(row);
 
             }
@@ -81,21 +83,25 @@ private final static Logger LOGGER = Logger.getLogger(JobData.class.getName());
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
 
         // load data, if not already loaded
-        loadData();
+        loadData(); {
+
+        }
 ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-value = value.toLowerCase();
+value = value.trim().toLowerCase();
+
 for (HashMap<String, String> row : allJobs) {
     boolean jobAlreadyAdded = false;
     for (Map.Entry<String, String> entry: row.entrySet()) {
-        if(entry.getValue() != null && entry.getValue().toLowerCase().contains(value)) {
-            if (!jobAlreadyAdded){
+        String entryValue = entry.getValue();
+        if(entryValue != null && entryValue.toLowerCase().contains(value) && !jobAlreadyAdded) {
+
                 jobs.add(row);
                 jobAlreadyAdded = true;
 
             }
         }
     }
-}
+
 
  // TODO - implement this method
           return jobs;
@@ -104,7 +110,7 @@ for (HashMap<String, String> row : allJobs) {
     /**
      * Read in data from a CSV file and store it in a list
      */
-    private static void loadData() {
+    public static void loadData() {
 
         // Only load data once
         if (isDataLoaded) {

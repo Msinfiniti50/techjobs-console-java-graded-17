@@ -46,7 +46,7 @@ public class TechJobs {
                     ArrayList<String> results = JobData.findAll(columnChoice);
                     Collections.sort(results);
 
-                    System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
+                    System.out.print("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
                     // Print list of skills, employers, etc
                     for (String item : results) {
@@ -69,6 +69,7 @@ public class TechJobs {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
             }
+
         }
     }
 
@@ -120,23 +121,20 @@ public class TechJobs {
     }
 
     // Print a list of jobs
-    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+    public static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         if (someJobs.isEmpty()) {
-            System.out.println("No Results");
+            System.out.print("No Results");
             return;
         }
-
-
         for (HashMap<String, String> job : someJobs) {
-
-            System.out.println("*****");
+            System.out.println("\n*****");
 
             for (String key : job.keySet()) {
 
         System.out.println(key + ": " + job.get(key));
     }
-            System.out.println("*****\n");
+            System.out.print("*****\n");
         }
 
 }}
